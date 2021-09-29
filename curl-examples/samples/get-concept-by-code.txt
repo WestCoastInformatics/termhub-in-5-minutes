@@ -1,0 +1,128 @@
+{
+  "id": "c2273780-4e2e-40e9-b4bb-e4502a12f4fc",
+  "modified": "2019-01-01T00:00:00.000-08:00",
+  "created": "2019-01-01T00:00:00.000-08:00",
+  "modifiedBy": "loader",
+  "local": false,
+  "active": true,
+  "name": "Heart structure",
+  "code": "80891009",
+  "terminology": "SNOMEDCT_US",
+  "attributes": {
+    "ACTIVE": "1",
+    "DEFINITION_STATUS_ID": "900000000000074008",
+    "CUI": "C0018787",
+    "SCG": "<<< 409708007 | Heart and/or pericardium structure | + 27832009 | Structure of thoracic viscus | :  has_part_anatomy_structure = 119202000 | Heart part |,  has_entire_anatomy_structure = 302509004 | Entire heart |",
+    "EFFECTIVE_TIME": "20020131"
+  },
+  "semanticTypes": [
+    "Body Part, Organ, or Organ Component",
+    "body structure"
+  ],
+  "atoms": [
+    {
+      "id": "88f3b793-f12c-4d75-9d96-92df03e8a894",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Heart, NOS",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A4737609",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "IS",
+      "attributes": {
+        "suppressible": "true"
+      }
+    },
+    {
+      "id": "f0b6a6c3-7f4f-400c-a2a3-d5fa77cd419d",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Heart structure (body structure)",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A3488292",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "FN",
+      "attributes": {
+        "TYPE_ID": "900000000000003001",
+        "CASE_SIGNIFICANCE_ID": "900000000000448009"
+      }
+    },
+    {
+      "id": "642ba814-3cf2-4b78-a6ed-1725c4dc038b",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Heart",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A2882201",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "SY",
+      "attributes": {
+        "TYPE_ID": "900000000000013009",
+        "CASE_SIGNIFICANCE_ID": "900000000000448009"
+      }
+    },
+    {
+      "id": "bbb4ec88-197a-4a6f-b8f6-56e3f32ff403",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Cardiac structure",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A6921135",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "SY",
+      "attributes": {
+        "TYPE_ID": "900000000000013009",
+        "CASE_SIGNIFICANCE_ID": "900000000000448009"
+      }
+    },
+    {
+      "id": "a1561741-9a46-4284-b63b-495d955feb35",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Heart structure",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A3140621",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "PT",
+      "attributes": {
+        "TYPE_ID": "900000000000013009",
+        "CASE_SIGNIFICANCE_ID": "900000000000448009"
+      }
+    }
+  ]
+}

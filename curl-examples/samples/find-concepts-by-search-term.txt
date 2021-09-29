@@ -1,0 +1,47 @@
+{
+  "total": 394,
+  "limit": 5,
+  "offset": 0,
+  "items": [
+    {
+      "id": "5641c656-f8c3-4d4f-9b32-af01ae29f705",
+      "local": false,
+      "active": true,
+      "name": "Malignant melanoma",
+      "code": "2092003",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "2f7d0624-7188-47e8-84d8-77fee9ea18fe",
+      "local": false,
+      "active": true,
+      "name": "Melanoma vaccine",
+      "code": "428026004",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "f6e80e7b-04fb-4fa1-9332-dbd502a28b62",
+      "local": false,
+      "active": true,
+      "name": "Melanoma carcinomatosis",
+      "code": "103511000119103",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "9518ab6f-df65-435d-a24e-565233d1bb58",
+      "local": false,
+      "active": true,
+      "name": "Melanoma vaccine",
+      "code": "373869007",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "55e22b8e-65f7-4c05-b31e-a4c023c2d540",
+      "local": false,
+      "active": false,
+      "name": "Excision of melanoma",
+      "code": "177280001",
+      "terminology": "SNOMEDCT_US"
+    }
+  ]
+}
