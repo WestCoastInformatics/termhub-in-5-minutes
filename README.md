@@ -14,7 +14,11 @@ This is an easy-to-use tutorial for accessing TermHub APIs through api.terminolo
 
 - [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
+- [Click for Go examples.](../master/go-examples/ "Go Examples")
+- [Click for Java examples.](../master/java-examples/ "Java Examples")
+- [Click for JavaScript examples.](../master/javascript-examples/ "JavaScript Examples")
 - [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
+- [Click for Python examples.](../master/python-examples/ "Python Examples")
 
 
 **[Back to top](#table-of-contents)**
