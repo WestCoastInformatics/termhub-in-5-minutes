@@ -21,7 +21,6 @@ Run this command before the sample curl calls below as they expect $API_URL to b
 When using an API_URL that points to an instance (such as https://api.terminologyhub.com) that
 requires authentication, the login call must first be used to obtain an access token.   
 
-If running against a local server with authentication disabled, use "guest" as the access token value.
 
 Sample cURL Calls
 -----------------
@@ -56,7 +55,7 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 Look up concept information for a given terminology and code.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/80891009" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/NLM/20210901/80891009" | jq
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)

@@ -1,9 +1,9 @@
-<a name="top"/>
 
 Termhub in 5 Minutes: bash Tutorial
 ===================================================
-
 This tutorial shows how to use bash scripts to access content from the TermHub Terminology API.
+
+<a name="top" />
 
 Prerequisites
 -------------
@@ -17,8 +17,6 @@ When using a url.env that points to an instance (such as https://api.terminology
 requires authentication, the login.sh script must first be used to obtain an access
 token.   
 
-If running against a local server with authentication disabled, use "guest" as the access token value.
-
 Test Scripts
 ------------
 - [login.sh](#login-sh)
@@ -29,8 +27,6 @@ Test Scripts
 - [get-subtree.sh](#get-subtree-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
-
-<a name="login-sh"/>
 
 ### login.sh
 
@@ -58,7 +54,6 @@ Finished ...Thu, Feb 27, 2020  3:45:27 PM
 
 [Back to Top](#top)
 
-<a name="get-terminologies-sh"/>
 
 ### get-terminologies.sh
 
@@ -117,7 +112,6 @@ Finished ...Thu, Feb 27, 2020  3:47:56 PM
 
 [Back to Top](#top)
 
-<a name="get-concept-sh"/>
 
 ### get-concept.sh
 
@@ -271,7 +265,6 @@ Finished ...Fri, Feb 28, 2020  2:09:01 PM
 
 [Back to Top](#top)
 
-<a name="get-concept-relationships-sh"/>
 
 ### get-concept-relationships.sh
 
@@ -391,15 +384,12 @@ Finished ...Fri, Feb 28, 2020  2:09:53 PM
 
 [Back to Top](#top)
 
-<a name="find-concepts-sh"/>
 
 ### find-concepts.sh
 
 Used to perform text searches to find matching concepts. The following example
 performs a text search for "malignant melanoma" and limits search results to 5
-entries.  When not specified the "MIN" resolver is used, which returns only
-first-class attributes of the concept object.  Use "--resolver DEFAULT" for
-summary concept information about each result.
+entries.
 
 ```
 $ ./find-concepts.sh SNOMEDCT_US "malignant melanoma" --token $token --limit 5
@@ -478,7 +468,7 @@ the concept object.  Use "--resolver DEFAULT" for summary concept information ab
 each result.
 
 ```
-$ ./find-concepts.sh SNOMEDCT_US "" --expr ^723264001 --limit 5 --token $token
+$ ./find-concepts.sh SNOMEDCT_US NLM 20210901 "" --expr ^723264001 --limit 5 --token $token
 -----------------------------------------------------
 Starting ...Thu, Apr  2, 2020  6:34:28 PM
 -----------------------------------------------------
@@ -549,7 +539,6 @@ Finished ...Thu, Apr  2, 2020  6:34:28 PM
 
 [Back to Top](#top)
 
-<a name="get-subtree-sh"/>
 
 ### get-subtree.sh
 
