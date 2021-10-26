@@ -396,50 +396,34 @@ performs a text search for "malignant melanoma" and limits search results to 5
 entries.
 
 ```
-$ ./find-concepts.sh SNOMEDCT_US NLM 20210901 "malignant melanoma" --token $token --limit 5
+$ ./find-concepts.sh SNOMEDCT_US NLM 20210901 '"malignant melanoma"' --token $token --limit 5
 -----------------------------------------------------
-Starting ...Tue, Oct 26, 2021  9:42:03 AM
+Starting ...Tue, Oct 26, 2021  9:46:14 AM
 -----------------------------------------------------
 url = https://dev.terminologyhub.com
 terminology = SNOMEDCT_US
 publisher = NLM
 version = 20210901
-query = malignant melanoma
+query = "malignant melanoma"
 expr =
 offset = 0
 limit = 5
 sort =
 ascending =
 
-  Find concepts: (terminology:SNOMEDCT_US AND version:20210901) AND malignant melanoma
+  Find concepts: (terminology:SNOMEDCT_US AND version:20210901) AND "malignant melanoma"
 
     {
-      "total": 3580,
+      "total": 215,
       "parameters": {
-        "query": "(terminology:SNOMEDCT_US AND version:20210901) AND malignant melanoma",
+        "query": "(terminology:SNOMEDCT_US AND version:20210901) AND \"malignant melanoma\"",
         "limit": 5,
         "offset": 0
       },
       "items": [
         {
-          "id": "a548c980-b751-45e1-95d3-1aa0a287ea6b",
-          "confidence": 22.842172622680664,
-          "modified": "2003-07-31T00:00:00.000+00:00",
-          "created": "2003-07-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Neurotropic melanoma, malignant",
-          "code": "399644007",
-          "terminology": "SNOMEDCT_US",
-          "version": "20210901",
-          "publisher": "NLM",
-          "leaf": false,
-          "defined": false
-        },
-        {
           "id": "419dc574-3486-4ec4-a1c7-32817ad7c5aa",
-          "confidence": 22.74724769592285,
+          "confidence": 22.857336044311523,
           "modified": "2002-07-31T00:00:00.000+00:00",
           "created": "2002-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -454,24 +438,8 @@ ascending =
           "defined": true
         },
         {
-          "id": "39391959-82cc-4106-a8d8-b5f5648fbe7e",
-          "confidence": 22.64668846130371,
-          "modified": "2002-01-31T00:00:00.000+00:00",
-          "created": "2002-01-31T00:00:00.000+00:00",
-          "modifiedBy": "loader",
-          "local": false,
-          "active": true,
-          "name": "Malignant melanoma of skin",
-          "code": "93655004",
-          "terminology": "SNOMEDCT_US",
-          "version": "20210901",
-          "publisher": "NLM",
-          "leaf": false,
-          "defined": true
-        },
-        {
           "id": "b74d1c66-aad2-4be3-9deb-ed08e80157fc",
-          "confidence": 22.524585723876953,
+          "confidence": 22.634675979614258,
           "modified": "2003-07-31T00:00:00.000+00:00",
           "created": "2003-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -486,8 +454,24 @@ ascending =
           "defined": true
         },
         {
+          "id": "2b6c4e97-c750-4efb-8755-8131932a6129",
+          "confidence": 22.38919448852539,
+          "modified": "2003-07-31T00:00:00.000+00:00",
+          "created": "2003-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Congenital malignant melanoma",
+          "code": "402559007",
+          "terminology": "SNOMEDCT_US",
+          "version": "20210901",
+          "publisher": "NLM",
+          "leaf": false,
+          "defined": false
+        },
+        {
           "id": "8e0a4292-ae68-4cb1-9ff5-b7ab24ff574a",
-          "confidence": 22.27910614013672,
+          "confidence": 22.38919448852539,
           "modified": "2003-07-31T00:00:00.000+00:00",
           "created": "2003-07-31T00:00:00.000+00:00",
           "modifiedBy": "loader",
@@ -500,12 +484,28 @@ ascending =
           "publisher": "NLM",
           "leaf": false,
           "defined": true
+        },
+        {
+          "id": "3291b19c-4761-4377-a609-536c2656e893",
+          "confidence": 22.38919448852539,
+          "modified": "2003-07-31T00:00:00.000+00:00",
+          "created": "2003-07-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Desmoplastic malignant melanoma",
+          "code": "403924008",
+          "terminology": "SNOMEDCT_US",
+          "version": "20210901",
+          "publisher": "NLM",
+          "leaf": false,
+          "defined": true
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Tue, Oct 26, 2021  9:42:04 AM
+Finished ...Tue, Oct 26, 2021  9:46:15 AM
 -----------------------------------------------------
 ```
 
