@@ -1,9 +1,9 @@
+<a name="top"/>
 
 Termhub in 5 Minutes: bash Tutorial
 ===================================================
-This tutorial shows how to use bash scripts to access content from the TermHub Terminology API.
 
-<a name="top" />
+This tutorial shows how to use bash scripts to access content from the TermHub Terminology API.
 
 Prerequisites
 -------------
@@ -54,6 +54,7 @@ Finished ...Thu, Feb 27, 2020  3:45:27 PM
 
 [Back to Top](#top)
 
+<a name="get-terminologies-sh"/>
 
 ### get-terminologies.sh
 
@@ -112,6 +113,7 @@ Finished ...Thu, Feb 27, 2020  3:47:56 PM
 
 [Back to Top](#top)
 
+<a name="get-concept-sh"/>
 
 ### get-concept.sh
 
@@ -265,6 +267,7 @@ Finished ...Fri, Feb 28, 2020  2:09:01 PM
 
 [Back to Top](#top)
 
+<a name="get-concept-relationships-sh"/>
 
 ### get-concept-relationships.sh
 
@@ -384,6 +387,7 @@ Finished ...Fri, Feb 28, 2020  2:09:53 PM
 
 [Back to Top](#top)
 
+<a name="find-concepts-sh"/>
 
 ### find-concepts.sh
 
@@ -539,6 +543,7 @@ Finished ...Thu, Apr  2, 2020  6:34:28 PM
 
 [Back to Top](#top)
 
+<a name="get-subtree-sh"/>
 
 ### get-subtree.sh
 

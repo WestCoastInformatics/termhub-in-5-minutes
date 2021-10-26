@@ -66,15 +66,15 @@ See sample payload data from this call in [`samples/get-concept-by-code.txt`](sa
 
 ### Get concept relationships by code
 
-Get concept relationships for a terminology and code. In this environment, relationships
-are represented bidirectionally, so this call will get relationships pointing "from"
-this concept as well as (inversed) relationships pointing "to" this concept.
+Get concept relationships for a terminology and code. In this case it resolves
+relationships that originate "from" this concept code and contain information about
+the concepts those relationships point "to" on the other side.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/80891009/relationships" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/NLM/20210901/80891009/relationships" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-more.txt)
+See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
 
 [Back to Top](#top)
 
