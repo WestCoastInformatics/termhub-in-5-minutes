@@ -45,11 +45,10 @@ Login and acquire an access token for a username and password.
 cat > /tmp/auth.txt << EOF
 { "grant_type": "username_password", "username": "<username>", "password": "<password>"}
 EOF
-curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: application/json" 2> /dev/null > /tmp/x.$$
-
+curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: application/json" | jq
 ```
 
-See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
+See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
 
 <a name="get-terminologies"/>
 
