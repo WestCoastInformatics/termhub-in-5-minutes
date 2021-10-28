@@ -396,6 +396,7 @@ performs a text search for "malignant melanoma" and limits search results to 5
 entries.
 
 ```
+
 $ ./find-concepts.sh SNOMEDCT_US "malignant melanoma" --token $token --limit 5
 -----------------------------------------------------
 Starting ...Thu, Apr  2, 2020  6:35:23 PM
