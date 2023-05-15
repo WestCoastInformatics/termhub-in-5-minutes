@@ -31,7 +31,7 @@ echo ""
 
 # GET call
 echo "  Get concept for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$terminology/$code" -H "Authorization: Bearer $token"  2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$code" -H "Authorization: Bearer $token"  2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$

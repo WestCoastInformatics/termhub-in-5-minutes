@@ -28,7 +28,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US/80891009",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US/80891009",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -48,7 +48,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US/80891009/relationships",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US/80891009/relationships",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -69,7 +69,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -102,7 +102,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&expression=<<363346000&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&expression=<<363346000&limit=5&resolver=MIN",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -139,7 +139,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/ICD10CM/M01/subtree?maxLevel=3",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/ICD10CM/M01/subtree?maxLevel=3",
 					"host": [
 						"{{API_URL}}"
 					],

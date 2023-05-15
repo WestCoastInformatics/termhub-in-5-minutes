@@ -52,7 +52,7 @@ fi
 
 # GET call
 echo "  Get concept for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$terminology/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$
