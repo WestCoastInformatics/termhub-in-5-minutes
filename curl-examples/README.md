@@ -39,13 +39,15 @@ The following examples can be types into the command line of any terminal that h
 
 ### Login
 
-Login and acquire an access token for a username and password.
+Login and acquire an access token for a username and password.  
+Replace <username> with your username and <password> with your password.  
+The commands below will set a `token` variable equal to the access token.
 
 ```
 cat > /tmp/auth.txt << EOF
 { "grant_type": "username_password", "username": "<username>", "password": "<password>"}
 EOF
-curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: application/json" | jq
+token=`curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: application/json" | jq -r '.access_token'`
 ```
 
 See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
@@ -71,7 +73,7 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 Look up concept information for a given terminology and code.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/NLM/20210901/80891009" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230131/80891009" | jq
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
@@ -87,7 +89,7 @@ relationships that originate "from" this concept code and contain information ab
 the concepts those relationships point "to" on the other side.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/NLM/20210901/80891009/relationships" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US/NLM/20210901/80891009/relationships" | jq
 ```
 
 See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
@@ -103,7 +105,7 @@ example uses paging to get only the first 5 results and a resolver that
 gets only minimum amount of data.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
@@ -123,7 +125,7 @@ neoplastic disease" concept in SNOMED).  To work properly, the expression value 
 be url encoded (See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US?query=melanoma&expression=%3C%3C363346000&limit=5&resolver=MIN" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&expression=%3C%3C363346000&limit=5&resolver=MIN" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
@@ -141,7 +143,7 @@ concepts are involved, performance can be slow and response payloads can be very
 large.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/ICD10CM/M01/subtree?maxLevel=3" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/ICD10CM/M01/subtree?maxLevel=3" | jq
 ```
 
 See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt)
