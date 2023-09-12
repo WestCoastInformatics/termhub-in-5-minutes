@@ -7,6 +7,5 @@ This tutorial shows how to use Java programming language to access content from 
 
 Prerequisites
 -------------
-TBD
 
 COMING SOON!

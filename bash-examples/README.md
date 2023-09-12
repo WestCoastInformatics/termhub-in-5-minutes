@@ -21,10 +21,11 @@ Test Scripts
 ------------
 - [login.sh](#login-sh)
 - [get-terminologies.sh](#get-terminologies-sh)
+- [get-terminology.sh](#get-terminology-sh)
 - [get-concept.sh](#get-concept-sh)
-- [get-concept.sh](#get-concept-sh)
+- [get-concept-relationships.sh](#get-concept-relationships-sh)
+- [get-concept-treepos.sh](#get-concept-treepos-sh)
 - [find-concepts.sh](#find-concepts-sh)
-- [get-subtree.sh](#get-subtree-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -109,6 +110,24 @@ url = https://api.terminologyhub.com
 -----------------------------------------------------
 Finished ...Thu, Feb 27, 2020  3:47:56 PM
 -----------------------------------------------------
+```
+
+[Back to Top](#top)
+
+<a name="get-terminologies-sh"/>
+
+### get-terminologies.sh
+
+Return all loaded terminologies currently hosted by the API.
+
+```
+$ ./get-terminology.sh --token $token SNOMEDCT SANDBOX 20230731
+
+```
+
+```
+$ ./get-terminology.sh --token $token ICD10CM SANDBOX 2023
+
 ```
 
 [Back to Top](#top)
@@ -278,6 +297,126 @@ field.
 
 ```
 $ ./get-concept-relationships.sh SNOMEDCT_US 80891009 --token $token --limit 5 --sort additionalType
+-----------------------------------------------------
+Starting ...Fri, Feb 28, 2020  2:09:52 PM
+-----------------------------------------------------
+url = http://localhost:8081
+terminology = SNOMEDCT_US
+code = 80891009
+
+  Get concept for SNOMEDCT_US 80891009:
+
+    {
+      "total": 1313,
+      "limit": 5,
+      "offset": 0,
+      "items": [
+        {
+          "id": "1262d1a9-72df-4e9e-a56d-a468fd4d6c58",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R28970370",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Heart cytologic material",
+          "toCode": "116157005"
+        },
+        {
+          "id": "582540dd-ecd7-4200-92ec-18bc0cd291a4",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343274",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart",
+          "toCode": "127462005"
+        },
+        {
+          "id": "bddbc143-b84b-4863-a0a0-1aceb253f86d",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343059",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by biopsy",
+          "toCode": "122623002"
+        },
+        {
+          "id": "f1aec2aa-d921-431d-b1b1-7df7c52aa893",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343060",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by excisional biopsy of lesion",
+          "toCode": "122624008"
+        },
+        {
+          "id": "601a9dfe-e0fc-4368-b4f5-d0e8c35dfa70",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343061",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by incisional biopsy",
+          "toCode": "122625009"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Fri, Feb 28, 2020  2:09:53 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#top)
+
+<a name="get-concept-treepos-sh"/>
+
+### get-concept-treepos.sh
+
+Return concept relationship information for a given terminology and code. The 
+following example finds relationships for the 80891009 | Heart structure | concept in 
+SNOMEDCT_US.  It limits the results to 5 entries and sorts by the "additionalType"
+field.
+
+```
+$ ./get-concept-treepos.sh SNOMEDCT 80891009 --token $token --limit 5 --sort additionalType
 -----------------------------------------------------
 Starting ...Fri, Feb 28, 2020  2:09:52 PM
 -----------------------------------------------------

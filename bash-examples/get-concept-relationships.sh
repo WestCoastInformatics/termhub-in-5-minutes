@@ -2,7 +2,6 @@
 #
 # Script to call TermHub to perform concept relationships 
 # lookup for a code.
-# NOTE: the token might be optional for endpoints without authentication.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;

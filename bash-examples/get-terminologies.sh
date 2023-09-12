@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # Script to call TermHub to get all terminologies
-# NOTE: the token might be optional for endpoints without authentication.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;

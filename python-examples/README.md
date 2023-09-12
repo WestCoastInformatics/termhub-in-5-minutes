@@ -7,6 +7,5 @@ This tutorial shows how to use Python programming language to access content fro
 
 Prerequisites
 -------------
-TBD
 
 COMING SOON!

@@ -7,6 +7,5 @@ This tutorial shows how to use JavaScript programming language to access content
 
 Prerequisites
 -------------
-TBD
 
 COMING SOON!
