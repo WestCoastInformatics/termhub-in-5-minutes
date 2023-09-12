@@ -14,7 +14,7 @@ esac; shift; done
 
 if [ ${#arr[@]} -ne 4 ]; then
   echo "Usage: $0 <terminology> <publisher> <version> <query> [--token token] [--expr <expression>]"
-  echo "    [--ascending <true|false>] [--sort <sort>]"
+  echo "    [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
   echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token"
   echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token --limit 5"
   echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token"
@@ -41,7 +41,7 @@ echo "terminology = $terminology"
 echo "publisher = $publisher"
 echo "version = $version"
 
-# Default resolver
+# Handle parameters
 if [[ -z $expr ]]; then
   expr=
 fi
@@ -66,15 +66,14 @@ echo "ascending = $ascending"
 echo ""
 
 if [[ -z $query ]]; then
-    query="(terminology:$terminology AND version:$version)"
+    query="(terminology:$terminology AND publisher:$publisher AND version:$version)"
 else
-    query="(terminology:$terminology AND version:$version) AND $query"
+    query="(terminology:$terminology AND publisher:$publisher AND version:$version) AND $query"
 fi
 
 # GET call
 echo "  Find concepts: $query"
-# TODO: --data-urlencode "sort=$sort" 
-curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept" -H "Authorization: Bearer $token" --data-urlencode "query=$query" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" --data-urlencode "expression=$expr" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET call failed"
   exit 1

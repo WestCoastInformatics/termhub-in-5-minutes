@@ -11,6 +11,8 @@ esac; shift; done
 if [ ${#arr[@]} -ne 3 ] || [ -z $token ]; then
   echo "Usage: $0 [--token token] <terminology> <publisher> <version>"
   echo "  e.g. $0 --token \$token"
+  echo "  e.g. $0 --token \$token ICD10CM SANDBOX 2023"
+  echo "  e.g. $0 --token \$token SNOMEDCT SANDBOX 20230731"
   exit 1
 fi
 

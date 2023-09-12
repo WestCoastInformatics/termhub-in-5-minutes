@@ -7,14 +7,17 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> <code> [--token token]"
-  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token"
+if [ ${#arr[@]} -ne 4 ]; then
+  echo "Usage: $0 <terminology> <publisher> <version> <code> [--token token]"
+  echo "  e.g. $0 ICD10CM SANDBOX 2023 C50 --token \$token"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 73211009 --token \$token"
   exit 1
 fi
 
 terminology=${arr[0]}
-code=${arr[1]}
+publisher=${arr[1]}
+version=${arr[2]}
+code=${arr[3]}
 
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -25,12 +28,14 @@ echo "Starting ...$(/bin/date)"
 echo "-----------------------------------------------------"
 echo "url = $url"
 echo "terminology = $terminology"
+echo "publisher = $publisher"
+echo "version = $version"
 echo "code = $code"
 echo ""
 
 # GET call
 echo "  Get concept for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$code" -H "Authorization: Bearer $token"  2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$publisher/$version/$code" -H "Authorization: Bearer $token"  2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$
