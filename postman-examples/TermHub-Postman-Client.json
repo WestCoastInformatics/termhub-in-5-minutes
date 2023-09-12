@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "abb0760e-15be-453f-a430-92d033c7ad02",
+		"_postman_id": "ec7393ff-dd1a-4fd5-a642-20ea4eeccf89",
 		"name": "TermHub Postman Client",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11076096"
 	},
 	"item": [
 		{
@@ -23,20 +24,63 @@
 			"response": []
 		},
 		{
-			"name": "Get concept by code",
+			"name": "Get terminology - SNOMEDCT",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US/80891009",
+					"raw": "{{API_URL}}/terminology/SNOMEDCT/SANDBOX/20230731",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get terminology - ICD10CM",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/ICD10CM/SANDBOX/2023",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"ICD10CM",
+						"SANDBOX",
+						"2023"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
 						"concept",
-						"SNOMEDCT_US",
-						"80891009"
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009"
 					]
 				}
 			},
@@ -48,16 +92,43 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US/80891009/relationships",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/relationships",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
+						"sandbox",
 						"concept",
-						"SNOMEDCT_US",
-						"80891009",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009",
 						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept tree positions by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/trees",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"sandbox",
+						"concept",
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731",
+						"73211009",
+						"trees"
 					]
 				}
 			},
@@ -69,7 +140,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -102,31 +173,30 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&expression=<<363346000&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&expression=%3C%3C64572001&limit=5",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
+						"sandbox",
 						"concept",
-						"SNOMEDCT_US"
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
 					],
 					"query": [
 						{
 							"key": "query",
-							"value": "melanoma"
+							"value": "diabetes"
 						},
 						{
 							"key": "expression",
-							"value": "<<363346000"
+							"value": "%3C%3C64572001"
 						},
 						{
 							"key": "limit",
 							"value": "5"
-						},
-						{
-							"key": "resolver",
-							"value": "MIN"
 						}
 					]
 				}
@@ -139,7 +209,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/sandbox/concept/ICD10CM/M01/subtree?maxLevel=3",
+					"raw": "{{API_URL}}/terminology/concept/ICD10CM/M01/subtree?maxLevel=3",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -165,6 +235,16 @@
 		"type": "oauth2",
 		"oauth2": [
 			{
+				"key": "accessTokenUrl",
+				"value": "https://api.terminologyhub.com/auth/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
 				"key": "accessToken",
 				"value": "",
 				"type": "string"
@@ -185,7 +265,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9e15a49f-3a33-44f5-ac46-100f1e6784cc",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -195,7 +274,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3f209e0e-1083-46be-9fff-350be285ad3c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -205,11 +283,9 @@
 	],
 	"variable": [
 		{
-			"id": "b4b75c63-135a-4003-9f2b-9963477d6ecb",
 			"key": "API_URL",
 			"value": "https://api.terminologyhub.com",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

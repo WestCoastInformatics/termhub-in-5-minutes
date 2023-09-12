@@ -2,7 +2,6 @@
 #
 # Script to call TermHub to perform concept relationships 
 # lookup for a code.
-# NOTE: the token might be optional for endpoints without authentication.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;
@@ -13,17 +12,19 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> <code> [--token token] [--limit #]"
+if [ ${#arr[@]} -ne 4 ]; then
+  echo "Usage: $0 <terminology> <publisher> <version> <code> [--token token] [--limit #]"
   echo "    [--offset #] [--ascending <true|false>] [--sort <sort>]"
-  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token"
-  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token --limit 5"
-  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token --limit 5 --sort additionalType"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 73211009 --token \$token"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 73211009 --token \$token --limit 5"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 73211009 --token \$token --limit 5 --sort additionalType"
   exit 1
 fi
 
 terminology=${arr[0]}
-code=${arr[1]}
+publisher=${arr[1]}
+version=${arr[2]}
+code=${arr[3]}
 
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -52,7 +53,7 @@ fi
 
 # GET call
 echo "  Get concept for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/sandbox/concept/$terminology/$publisher/$version/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$

@@ -7,6 +7,5 @@ This tutorial shows how to use Go programming language to access content from th
 
 Prerequisites
 -------------
-TBD
 
 COMING SOON!

@@ -29,11 +29,12 @@ The following examples can be types into the command line of any terminal that h
 
 - [Login](#login)
 - [Get terminologies](#get-terminologies)
+- [Get specific terminology](#get-terminology)
 - [Get concept by code](#get-concept-by-code)
 - [Get concept relationships by code](#get-concept-relationships)
+- [Get concept tree positions](#get-treepos)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term and expression](#find-concepts-expr)
-- [Get concept subtree](#get-subtree)
 
 <a name="login"/>
 
@@ -56,13 +57,35 @@ See sample payload data from this call in [`samples/login.txt`](samples/login.tx
 
 ### Get terminologies
 
-Return all loaded terminologies currently hosted by the API.
+Return all loaded terminologies currently hosted by the API.  This call also takes
+search parameters like query, limit, offset, sort, and ascending to allow searching
+across available terminologies.
 
 ```
 curl -H "Authorization: Bearer $token" "$API_URL/terminology" | jq
 ```
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
+
+[Back to Top](#top)
+
+<a name="get-terminology"/>
+
+### Get terminology 
+
+Return a specific terminology for an abbreviation, publisher, and version.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/SNOMEDCT/SANDBOX/20230731" | jq
+```
+
+See sample payload data from this call in [`samples/get-terminology-snomedct.txt`](samples/get-terminology-snomedct.txt)
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/ICD10CM/SANDBOX/2023" | jq
+```
+
+See sample payload data from this call in [`samples/get-terminology-icd10cm.txt`](samples/get-terminology-icd10cm.txt)
 
 [Back to Top](#top)
 
@@ -73,7 +96,7 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 Look up concept information for a given terminology and code.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230131/80891009" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009" | jq
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
@@ -89,10 +112,26 @@ relationships that originate "from" this concept code and contain information ab
 the concepts those relationships point "to" on the other side.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US/NLM/20210901/80891009/relationships" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/relationships" | jq
+```
+See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
+
+[Back to Top](#top)
+
+<a name="get-treepos"/>
+
+### Get concept tree positions
+
+Get concept tree positions for a terminology and code. For classification
+hierarchies, you would expect to see just a single tree position.  But for
+more complex poly-hierarchies you likely expect to see multiple tree positions -
+each one with a different path to the root concept.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731/73211009/trees" | jq
 ```
 
-See sample payload data from this call in [`samples/get-concept-relationsihps.txt`](samples/get-concept-relationships.txt)
+See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-concept-treepos.txt)
 
 [Back to Top](#top)
 
@@ -101,11 +140,10 @@ See sample payload data from this call in [`samples/get-concept-relationsihps.tx
 ### Find concepts by search term
 
 Find concepts matching a search term within a specified terminology. This 
-example uses paging to get only the first 5 results and a resolver that
-gets only minimum amount of data.
+example uses paging to get only the first 5 results.
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN" | jq
+curl -s -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&limit=5" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
@@ -118,35 +156,19 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 Find concepts matching a search term within a specified terminology and constrain
 the search results by an expression. This example uses paging to get only the first 
-5 results and a resolver that gets only minimum amount of data.
+5 results.
 
-NOTE: the expression we are using is <<363346000 (descendants-or-self of the "Malignant
-neoplastic disease" concept in SNOMED).  To work properly, the expression value has to
-be url encoded (See https://www.urlencoder.org/ for an online URL encoder):
+NOTE: the expression we are using is <<64572001 (descendants-or-self of the "Disease"
+concept in SNOMED).  To work properly, the expression value has to be url encoded 
+(See https://www.urlencoder.org/ for an online URL encoder):
 
 ```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT_US?query=melanoma&expression=%3C%3C363346000&limit=5&resolver=MIN" | jq
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&expression=%3C%3C64572001&limit=5" | jq
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
 
 [Back to Top](#top)
 
-<a name="get-subtree"/>
 
-### Get concept subtree
-
-Get a subtree for a concept code to a maximum level of depth (default = 0).
-This is a way to see all of the concepts underneath a particular node.
-Be careful using this with large terminologies because when huge numbers of
-concepts are involved, performance can be slow and response payloads can be very
-large.
-
-```
-curl -H "Authorization: Bearer $token" "$API_URL/terminology/sandbox/concept/ICD10CM/M01/subtree?maxLevel=3" | jq
-```
-
-See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt)
-
-[Back to Top](#top)
 

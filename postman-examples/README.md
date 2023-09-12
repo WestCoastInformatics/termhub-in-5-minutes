@@ -23,21 +23,19 @@ After importing the collection, if you choose a request and click "Send" you sho
 }
 ```
 
-This message means you have to first log in and acquire an access token.  To do so, click on
-the "Authorization" tab and you'll see a message like this:
+This message means you have to first log in and acquire an access token.  To do so, follow these steps:
 
-`"This request is using an authorization helper from collection __TermHub Postman Client__"`
-
-1. Click on the link to open the authorization popup.
-2. Click the "Get New Access Token" button
-3. "Grant Type" should be set to "Password Credentials"
-4. "Access Token URL" should be set to "https://api.terminologyhub.com/auth/token"
-5. "Username" and "Password" should be your UTS account credentials
-6. "Client ID", "Client Secret", and "Scope" should be blank (but their values do not matter)
-7. "Client Authentication" should be set to "Send client credentials in body"
-8. Click "Request Token"
-9. If successful, the popup will contain an access token and a button that says "Use Token"
-10. Click the "Use Token" button.  NOW - all requests will be authorized with this token.
+1. Click on the collection itself "TermHub Postman Client"
+2. Then to the right, click on the "Authorization" tab
+3. Scroll down to the "Configure New Token" section and enter the following values
+  - Grant Type = "Password Credentials"
+  - Access Token URL = https://api.terminologyhub.com/auth/token
+  - Username = <your email username>
+  - Password = <your password>
+4. Then scroll to the bottom and Click the the "Get New Access Token" button
+5. If all goes well, you will get a dialog with a success message and when you click
+   through you will get to a dialog called "MANAGE ACCESS TOKENS"
+6. Here click the "Use Token" button and you will be ready to proceed.
 
 
 Sample Postman Calls
