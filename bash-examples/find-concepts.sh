@@ -15,12 +15,8 @@ esac; shift; done
 if [ ${#arr[@]} -ne 4 ]; then
   echo "Usage: $0 <terminology> <publisher> <version> <query> [--token token] [--expr <expression>]"
   echo "    [--limit <limit>] [--offset <offset>] [--ascending <true|false>] [--sort <sort>]"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token --limit 5"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --token \$token"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --expr disorder --token \$token"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 '"'"'"malignant melanoma"'"'"' --expr \"<<363346000 | Malignant neoplastic disease | \" --token \$token"
-  echo "  e.g. $0 SNOMEDCT_US NLM 20210901 \"\" --expr \"^723264001 | Lateralizable body structure reference set |\" --token \$token"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 diabetes --token \$token"
+  echo "  e.g. $0 SNOMEDCT SANDBOX 20230731 system --expr '<64572001' --limit 5 --token \$token"
   exit 1
 fi
 

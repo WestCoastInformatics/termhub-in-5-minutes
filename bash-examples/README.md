@@ -148,12 +148,82 @@ Return the specific terminology for the abbreviation, publisher, and version.
 
 ```
 $ ./get-terminology.sh --token $token SNOMEDCT SANDBOX 20230731
-TBD
+-----------------------------------------------------
+Starting ...Tue, Sep 12, 2023  7:39:17 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
+
+  Performing terminologies lookup
+    count = 20
+
+    {
+      "id": "584227ae-c7cd-4847-9574-d427856c1886",
+      "confidence": 4.9812846183776855,
+      "modified": "2023-09-06T01:25:34.310+00:00",
+      "created": "2023-09-06T01:25:34.310+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "SNOMEDCT",
+      "name": "Systematized Nomenclature of Medicine–Clinical Terminology",
+      "version": "20230731",
+      "publisher": "SANDBOX",
+      "latest": true,
+      "loaded": true,
+      "family": "SNOMEDCT",
+      "releaseDate": "2023-07-31",
+      "license": "UNRESTRICTED",
+      "attributes": {
+        "tree-positions": "true"
+      },
+      "conceptCt": 409,
+      "relationshipCt": 666,
+      "treePositionCt": 1997
+    }
+
+-----------------------------------------------------
+Finished ...Tue, Sep 12, 2023  7:39:18 PM
+-----------------------------------------------------
 ```
 
 ```
 $ ./get-terminology.sh --token $token ICD10CM SANDBOX 2023
+-----------------------------------------------------
+Starting ...Tue, Sep 12, 2023  7:39:28 PM
+-----------------------------------------------------
+url = https://api.terminologyhub.com
 
+  Performing terminologies lookup
+    count = 20
+
+    {
+      "id": "baffe020-a623-47fb-aae6-01db99aa6baf",
+      "confidence": 5.708115577697754,
+      "modified": "2023-09-06T01:28:53.560+00:00",
+      "created": "2023-09-06T01:28:53.560+00:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "abbreviation": "ICD10CM",
+      "name": "International Classification of Diseases, 10th Edition, Clinical Modification, 2023",
+      "version": "2023",
+      "publisher": "SANDBOX",
+      "latest": true,
+      "loaded": true,
+      "family": "ICD10CM",
+      "releaseDate": "2022-11-07",
+      "license": "UNRESTRICTED",
+      "attributes": {
+        "tree-positions": "true"
+      },
+      "conceptCt": 6,
+      "relationshipCt": 10,
+      "treePositionCt": 6
+    }
+
+-----------------------------------------------------
+Finished ...Tue, Sep 12, 2023  7:39:28 PM
+-----------------------------------------------------
 ```
 
 [Back to Top](#top)
@@ -914,141 +984,124 @@ Finished ...Mon, Sep 11, 2023  7:49:02 PM
 -----------------------------------------------------
 ```
 
-NEEDS WORK BELOW:
-This example performs a search that returns all concept members of the SNOMEDCT_US
-reference set 723264001 | Lateralizable body structure reference set |.  When not 
-specified the "MIN" resolver is used, which returns only first-class attributes of 
-the concept object.  Use "--resolver DEFAULT" for summary concept information about 
-each result.
+This example performs a search that returns all descendants of the SNOMED
+64572001 | Disease | concept that contain the word "system" with a maximum
+of 5 results.
 
 ```
-$ ./find-concepts.sh SNOMEDCT_US NLM 20210901 "" --expr ^723264001 --limit 5 --token $token
+$ ./find-concepts.sh SNOMEDCT SANDBOX 20230731 system --expr '<64572001' --limit 5 --token $token
 -----------------------------------------------------
-Starting ...Thu, Apr  2, 2020  6:34:28 PM
+Starting ...Tue, Sep 12, 2023  7:44:07 PM
 -----------------------------------------------------
 url = https://api.terminologyhub.com
-terminology = SNOMEDCT_US
-query =
-resolver = MIN
-expr = ^723264001
+terminology = SNOMEDCT
+publisher = SANDBOX
+version = 20230731
+query = system
+expr = <64572001
 offset = 0
 limit = 5
 sort =
 ascending =
 
-  Find concepts:
+  Find concepts: (terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731) AND system
 
     {
-      "total": 19778,
-      "limit": 5,
-      "offset": 0,
+      "total": 21,
+      "parameters": {
+        "query": "(terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731) AND system AND ((terminology:ICD10CM AND publisher:SANDBOX AND version:2023) OR (terminology:SNOMEDCT AND publisher:SANDBOX AND version:20230731) OR (terminology:LNC AND publisher:SANDBOX AND version:274) OR (terminology:RXNORM AND publisher:SANDBOX AND version:07032023))",
+        "limit": 5,
+        "offset": 0
+      },
       "items": [
         {
-          "id": "e9694627-b34f-488f-b134-7a8e0e13b1ba",
+          "id": "88405999-46b6-4458-bb84-8530328187b3",
+          "confidence": 29.81255531311035,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Pulmonary vein confluence",
-          "code": "373097002",
-          "terminology": "SNOMEDCT_US"
+          "name": "Entire cardiovascular system",
+          "code": "278198007",
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false
         },
         {
-          "id": "1ed65df3-f320-47e2-bd25-b902678b3658",
+          "id": "73901bd1-dbf8-4558-8a9a-86ee98528204",
+          "confidence": 29.579036712646484,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Deiter's cell",
-          "code": "4799000",
-          "terminology": "SNOMEDCT_US"
+          "name": "Entire endocrine system",
+          "code": "278876000",
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "leaf": true,
+          "defined": false
         },
         {
-          "id": "7358bcab-4791-4378-a094-da9cc83da6e1",
+          "id": "cd679297-e89a-4455-af42-0c1164a7ab0d",
+          "confidence": 29.579036712646484,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Cephalometric molar superius point",
-          "code": "713770007",
-          "terminology": "SNOMEDCT_US"
+          "name": "Body system structure",
+          "code": "91689009",
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
         },
         {
-          "id": "eabb911c-78e5-4a17-b175-459bce6e76fd",
+          "id": "051c57c7-1863-4cd7-a176-ab538ec7710b",
+          "confidence": 29.579036712646484,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Cephalometric long axis of lower incisor",
-          "code": "713772004",
-          "terminology": "SNOMEDCT_US"
+          "name": "Entire body system",
+          "code": "278195005",
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
         },
         {
-          "id": "7099f23d-9304-4f9d-9fda-6d3b579f7b28",
+          "id": "a6fad5a1-9879-49fc-a866-f8fd373ba096",
+          "confidence": 29.529281616210938,
+          "modified": "2002-01-31T00:00:00.000+00:00",
+          "created": "2002-01-31T00:00:00.000+00:00",
+          "modifiedBy": "loader",
           "local": false,
           "active": true,
-          "name": "Tibia and fibula, CS",
-          "code": "110536004",
-          "terminology": "SNOMEDCT_US"
+          "name": "Structure of cardiovascular system",
+          "code": "113257007",
+          "terminology": "SNOMEDCT",
+          "version": "20230731",
+          "publisher": "SANDBOX",
+          "leaf": false,
+          "defined": false
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Thu, Apr  2, 2020  6:34:28 PM
+Finished ...Tue, Sep 12, 2023  7:44:07 PM
 -----------------------------------------------------
 ```
 
 [Back to Top](#top)
 
-<a name="get-subtree-sh"/>
-
-### get-subtree.sh
-
-Used to lookup a subtree for a terminology code.  The following example finds
-all of the descendants to a depth of 3 (which for ICD10CM is all of the 
-descendants).
-
-```
------------------------------------------------------
-Starting ...Mon, Mar 23, 2020  4:40:37 PM
------------------------------------------------------
-url = https://api.terminologyhub.com
-terminology = ICD10CM
-code = M01
-level = 3
-
-  Get concept for ICD10CM M01:
-
-    {
-      "local": false,
-      "active": true,
-      "terminology": "ICD10CM",
-      "code": "M01",
-      "name": "Direct infections of joint in infectious and parasitic diseases classified elsewhere",
-      "childCt": 1,
-      "level": 0,
-      "children": [
-        {
-          "local": false,
-          "active": true,
-          "terminology": "ICD10CM",
-          "code": "M01.X",
-          "name": "Direct infection of joint in infectious and parasitic diseases classified elsewhere",
-          "childCt": 10,
-          "level": 1,
-          "children": [
-            {
-              "local": false,
-              "active": true,
-              "terminology": "ICD10CM",
-              "code": "M01.X0",
-              "name": "Direct infection of unspecified joint in infectious and parasitic diseases classified elsewhere",
-              "childCt": 0,
-              "level": 2
-            },
-            ...
-          ]
-        }
-      ]
-    }
-
------------------------------------------------------
-Finished ...Mon, Mar 23, 2020  4:40:38 PM
------------------------------------------------------
-```
-
-[Back to Top](#top)
 
