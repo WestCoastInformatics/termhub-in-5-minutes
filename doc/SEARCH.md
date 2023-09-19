@@ -1,17 +1,20 @@
 <a name="top" />
 
-Using the "expression" parameter
+Using the "query" parameter
 =============================
 
-The "find concept" API endpoints make use of an "expression" parameter that allows 
-for some advanced searching capabilities.
+The "find" API endpoints make use of an "query" parameter that supports
+simple search phrases as well as more complicated introspection into the domain model.
 
-### Using semantic type values for the expression
+### Searching Concepts
 
-Needs explanation
+COMING SOON
 
-### Using expression constraint language values for the expression
+### Searching Concept Relationships
 
-Needs explanation.
-Link to SNOMED ECL.
+COMING SOON
+
+### Searching Concept Tree Positionss
+
+COMING SOON
 
