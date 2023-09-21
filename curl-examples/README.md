@@ -49,6 +49,7 @@ cat > /tmp/auth.txt << EOF
 { "grant_type": "username_password", "username": "<username>", "password": "<password>"}
 EOF
 token=`curl -X POST "$API_URL/auth/token" -d "@/tmp/auth.txt" -H "Content-type: application/json" | jq -r '.access_token'`
+/bin/rm -f /mtp/auth.txt
 ```
 
 See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
