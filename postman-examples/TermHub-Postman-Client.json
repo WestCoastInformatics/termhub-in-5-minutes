@@ -148,7 +148,9 @@
 						"terminology",
 						"sandbox",
 						"concept",
-						"SNOMEDCT"
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
 					],
 					"query": [
 						{
