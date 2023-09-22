@@ -140,19 +140,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
+					"raw": "{{API_URL}}/terminology/sandbox/concept/SNOMEDCT/SANDBOX/20230731?query=diabetes&limit=5&resolver=MIN",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"terminology",
+						"sandbox",
 						"concept",
-						"SNOMEDCT_US"
+						"SNOMEDCT",
+						"SANDBOX",
+						"20230731"
 					],
 					"query": [
 						{
 							"key": "query",
-							"value": "melanoma"
+							"value": "diabetes"
 						},
 						{
 							"key": "limit",

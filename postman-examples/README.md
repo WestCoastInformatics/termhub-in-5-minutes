@@ -26,7 +26,7 @@ After importing the collection, if you choose a request and click "Send" you sho
 This message means you have to first log in and acquire an access token.  To do so, follow these steps:
 
 1. Click on the collection itself "TermHub Postman Client"
-2. Then to the right, click on the "Authorization" tab
+2. Then click on the "Authorization" tab
 3. Scroll down to the "Configure New Token" section and enter the following values
   - Grant Type = "Password Credentials"
   - Access Token URL = https://api.terminologyhub.com/auth/token
