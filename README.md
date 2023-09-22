@@ -33,12 +33,14 @@ To test against our TermHub servers, you must first create an account by signing
 
 The following cases will be used to demonstrate accessing the TermHub Terminology API
 
-- login
+- Login
 - Get terminologies
+- Get specific terminology
 - Get concept by code
 - Get concept relationships by code
+- Get concept tree positions
 - Find concepts by search term (use paging to get only first 5 results)
-- Get concept subtree
+- Find concepts by search term and expression
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 
