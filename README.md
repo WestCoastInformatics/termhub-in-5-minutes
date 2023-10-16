@@ -1,4 +1,6 @@
-# Termhub in 5 Minutes Tutorial
+# DEPRECATED - see https://github.com/terminologyhub/termhub-in-5-minutes
+
+Termhub in 5 Minutes Tutorial
 
 This is an easy-to-use tutorial for accessing TermHub APIs through api.terminologyhub.com.
 
