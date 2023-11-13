@@ -6,6 +6,10 @@ Using the "query" parameter
 The "find" API endpoints make use of an "query" parameter that supports
 simple search phrases as well as more complicated introspection into the domain model.
 
+### Searching Terminologies
+
+COMING SOON
+
 ### Searching Concepts
 
 COMING SOON
