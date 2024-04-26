@@ -1,4 +1,4 @@
-# DEPRECATED - see https://github.com/terminologyhub/termhub-in-5-minutes
+# MOVED - see https://github.com/terminologyhub/termhub-in-5-minutes
 
 Termhub in 5 Minutes Tutorial
 
